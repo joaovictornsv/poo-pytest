@@ -3,12 +3,22 @@ repos:
     rev: stable
     hooks:
     - id: black
+      entry: black src
       language_version: python3.8
       stages: [commit]
 -   repo: https://gitlab.com/pycqa/flake8
     rev: 3.7.9
     hooks:
     - id: flake8
+      stages: [commit]
+-   repo: local
+    hooks:
+    - id: pytest
+      name: pytest
+      language: system
+      entry: pytest -v -s
+      always_run: true
+      pass_filenames: false
       stages: [commit]
 -   repo: local
     hooks:

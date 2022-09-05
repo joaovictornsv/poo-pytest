@@ -1,5 +1,6 @@
-from .base import BaseAppException
 from src.app.constants import HttpStatusCode
+from .base import BaseAppException
+
 
 class NotFoundException(BaseAppException):
     def __init__(self, message):
