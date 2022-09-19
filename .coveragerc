@@ -1,2 +1,2 @@
 [run]
-omit = *_test.py, *__init__.py
+omit = *_test.py, *__init__.py, src/app/validation/**, src/app/exceptions/**

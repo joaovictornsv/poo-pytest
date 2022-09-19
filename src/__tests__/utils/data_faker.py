@@ -7,7 +7,7 @@ faker = Faker()
 
 class DataFaker:
     def float_number(self) -> float:
-        return float(f"{random.random() * 10:.2f}")
+        return float(f"{random.random() * 10 + 1:.2f}")
 
     def name(self) -> str:
         return faker.name()
