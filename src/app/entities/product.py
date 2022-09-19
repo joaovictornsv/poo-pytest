@@ -1,4 +1,6 @@
 from uuid import uuid4
+from src.app.validation import Validator
+from src.app.validation.schemas import ProductSchema
 
 
 class Product:
@@ -6,6 +8,7 @@ class Product:
         self.__id = str(uuid4())
         self.__name = name
         self.__price = price
+        self.__validate()
 
     # pylint: disable=C0103
     @property
@@ -19,3 +22,9 @@ class Product:
     @property
     def price(self) -> float:
         return self.__price
+
+    def __validate(self):
+        validator = Validator()
+        validator.validate(
+            ProductSchema(), {"name": self.__name, "price": self.__price}
+        )

@@ -13,10 +13,10 @@ repos:
       stages: [commit]
 -   repo: local
     hooks:
-    - id: pytest
-      name: pytest
+    - id: pytest-coverage
+      name: pytest-coverage
       language: system
-      entry: pytest -v -s
+      entry: pytest --cov=src --cov-report html:coverage --cov-config=.coveragerc --cov-fail-under=90
       always_run: true
       pass_filenames: false
       stages: [commit]
